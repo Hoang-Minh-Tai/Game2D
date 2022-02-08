@@ -1,7 +1,12 @@
+package entity;
+
+import controller.PlayerController;
+import core.Position;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class Player extends GameObject{
+public class Player extends GameObject {
     private PlayerController controller;
     public Player() {
         controller = new PlayerController();
@@ -15,7 +20,7 @@ public class Player extends GameObject{
         if (controller.isRequestingDown()) dY++;
         if (controller.isRequestingLeft()) dX--;
         if (controller.isRequestingRight()) dX++;
-        position = new Position(position.getX()+dX, position.getY() + dY);
+        position = new Position(position.getX() + dX, position.getY() + dY);
     }
 
     @Override

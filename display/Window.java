@@ -1,3 +1,9 @@
+package display;
+
+import game.Game;
+import game.GameLoop;
+import input.Input;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -25,7 +31,7 @@ public class Window extends JFrame {
     public void run() {
         // Config
         window.setVisible(true);
-        window.setTitle("My 2D Game");
+        window.setTitle("My 2D game.Game");
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setResizable(false);
 

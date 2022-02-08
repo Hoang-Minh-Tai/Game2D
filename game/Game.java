@@ -1,3 +1,7 @@
+package game;
+
+import entity.*;
+
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.util.ArrayList;
