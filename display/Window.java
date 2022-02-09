@@ -24,6 +24,7 @@ public class Window extends JFrame {
         return Window.window;
     }
 
+
     public static Input getInput() {
         return input;
     }

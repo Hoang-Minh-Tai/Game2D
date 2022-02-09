@@ -1,6 +1,8 @@
 package game;
 
+import display.Renderer;
 import entity.*;
+import gfx.SpriteLibrary;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -8,13 +10,19 @@ import java.util.ArrayList;
 
 
 public class Game {
+    public final static int SPRITE_SIZE = 64;
+
     private static Game game = null;
     private static Canvas canvas = null;
+    private static Renderer renderer;
     private ArrayList<GameObject> gameObjectList;
+    private SpriteLibrary spriteLibrary;
 
     public Game() {
+        spriteLibrary = new SpriteLibrary();
         gameObjectList = new ArrayList<>();
-        gameObjectList.add(new Player());
+        gameObjectList.add(new Player(spriteLibrary));
+        renderer = new Renderer();
     }
 
     public static Game get() {
@@ -33,10 +41,7 @@ public class Game {
 
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
-        gameObjectList.forEach(gameObject -> graphics.drawImage(
-                gameObject.getSprite(),
-                gameObject.getPosition().getX(),
-                gameObject.getPosition().getY(),null));
+        renderer.render(game,graphics);
 
         graphics.dispose();
         bufferStrategy.show();
@@ -45,5 +50,9 @@ public class Game {
     public void update() {
         gameObjectList.forEach(gameObject -> gameObject.update());
 
+    }
+
+    public ArrayList<GameObject> getGameObjectList() {
+        return gameObjectList;
     }
 }
