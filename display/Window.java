@@ -8,8 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window extends JFrame {
-    private static final int HEIGHT = 1080;
-    private static final int WIDTH = 1980;
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 600;
 
     private static Window window = null;
     private static Canvas canvas = Game.getCanvas();
@@ -32,9 +32,10 @@ public class Window extends JFrame {
     public void run() {
         // Config
         window.setVisible(true);
-        window.setTitle("My 2D game.Game");
+        window.setTitle("My 2D game");
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
         window.setResizable(false);
+        window.setLocation(500,100);
 
         init();
         loop();

@@ -21,10 +21,13 @@ public class Movement {
         vector2D = new Vector2D(dX,dY);
         vector2D.normalize();
         vector2D.setSpeed(speed);
-        System.out.println(vector2D.length());
     }
 
     public Vector2D getVector2D() {
         return vector2D;
+    }
+
+    public boolean isMoving() {
+        return vector2D.length() > 0;
     }
 }

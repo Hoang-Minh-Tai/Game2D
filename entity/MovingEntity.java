@@ -14,16 +14,14 @@ public class MovingEntity extends GameObject{
     AnimationManager animationManager;
 
     public MovingEntity(SpriteLibrary spriteLibrary) {
-        this.controller = new PlayerController();
         this.movement = new Movement(2);
-        animationManager = new AnimationManager(spriteLibrary.getUnit("dave"));
     }
 
     @Override
     public void update() {
         movement.update(controller);
         position.apply(movement);
-        animationManager.update();
+        animationManager.update(movement);
     }
 
     @Override
