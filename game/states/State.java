@@ -1,10 +1,10 @@
 package game.states;
 
+import core.Position;
 import core.Size;
 import display.Camera;
 import display.Window;
 import entity.GameObject;
-import entity.Player;
 import gfx.SpriteLibrary;
 import map.GameMap;
 
@@ -23,7 +23,7 @@ public abstract class State {
     }
 
     public void update() {
-        gameObjectList.forEach(gameObject -> gameObject.update());
+        gameObjectList.forEach(gameObject -> gameObject.update(this));
         camera.update(this);
     }
 
@@ -37,5 +37,9 @@ public abstract class State {
 
     public Camera getCamera() {
         return camera;
+    }
+
+    public Position getRandomPosition() {
+        return gameMap.getRandomPosition();
     }
 }

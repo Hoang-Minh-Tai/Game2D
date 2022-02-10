@@ -3,6 +3,7 @@ package entity;
 
 import core.Position;
 import core.Size;
+import game.states.State;
 
 import java.awt.*;
 
@@ -14,7 +15,7 @@ public abstract class GameObject {
         position = new Position(50,50);
         size = new Size(50,50);
     }
-    public abstract void update();
+    public abstract void update(State state);
     public abstract Image getSprite();
 
     public Position getPosition() {

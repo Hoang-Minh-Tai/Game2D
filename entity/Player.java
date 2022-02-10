@@ -11,10 +11,4 @@ public class Player extends MovingEntity {
         controller = new PlayerController();
         animationManager = new AnimationManager(spriteLibrary.getUnit("matt"));
     }
-
-    @Override
-    public void update() {
-        super.update();
-    }
-
 }

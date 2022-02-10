@@ -1,8 +1,9 @@
 package game;
 
 public class GameLoop implements Runnable {
+    public static final int UPDATE_PER_SECOND = 60;
     private boolean running;
-    private final double updateRate = 1.0d / 60.0d;
+    private final double updateRate = 1.0d / UPDATE_PER_SECOND;
     private Game game = Game.get();
 
     private int fps, ups;

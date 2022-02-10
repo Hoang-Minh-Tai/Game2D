@@ -8,10 +8,8 @@ import entity.Player;
 import map.GameMap;
 
 import java.util.List;
-import java.util.Random;
 
 public class GameState extends State {
-    Random random = new Random();
     public GameState() {
         super();
         gameMap = new GameMap(new Size(21, 12), spriteLibrary);
@@ -19,10 +17,11 @@ public class GameState extends State {
     }
 
     public void initializeObject() {
-        NPC npc = new NPC(spriteLibrary);
-        npc.setPosition(new Position(random.nextInt(Window.WIDTH), random.nextInt(Window.HEIGHT)));
+        for (int i = 1; i <= 10; i++) {
+            gameObjectList.add(new NPC(spriteLibrary));
+        }
         Player player = new Player(spriteLibrary);
-        gameObjectList.addAll(List.of(npc,player));
+        gameObjectList.add(player);
         camera.focusOn(player);
     }
 }

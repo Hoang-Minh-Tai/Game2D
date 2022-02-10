@@ -34,8 +34,7 @@ public class Window extends JFrame {
         window.setVisible(true);
         window.setTitle("My 2D game");
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        window.setResizable(false);
-        window.setLocation(500,100);
+        window.setLocation(400,50);
 
         init();
         loop();

@@ -1,10 +1,16 @@
 package core;
 
 public class Position {
-    double x;
-    double y;
+    public static final int PROXIMATE_RANGE = 5;
+    private double x;
+    private double y;
 
     public Position(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public Position(double x, double y) {
         this.x = x;
         this.y = y;
     }
@@ -37,5 +43,9 @@ public class Position {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public boolean isInRangeOf(Position target) {
+        return Math.abs(x - target.getX()) < PROXIMATE_RANGE && Math.abs(y - target.getY()) < PROXIMATE_RANGE;
     }
 }

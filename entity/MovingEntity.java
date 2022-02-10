@@ -1,8 +1,10 @@
 package entity;
 
 import controller.Controller;
+import controller.NPCController;
 import controller.PlayerController;
 import core.Movement;
+import game.states.State;
 import gfx.AnimationManager;
 import gfx.SpriteLibrary;
 
@@ -18,7 +20,7 @@ public class MovingEntity extends GameObject{
     }
 
     @Override
-    public void update() {
+    public void update(State state) {
         movement.update(controller);
         position.apply(movement);
         animationManager.update(movement);
@@ -27,5 +29,9 @@ public class MovingEntity extends GameObject{
     @Override
     public Image getSprite() {
         return animationManager.getSprite();
+    }
+
+    public Controller getController() {
+        return this.controller;
     }
 }
